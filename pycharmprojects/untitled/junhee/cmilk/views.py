@@ -9,7 +9,7 @@ def keyboard(request):
  
     return JsonResponse({
         'type':'buttons',
-        'buttons':['오늘','내일']
+        'buttons':['오늘','내일','모래','추천']
     })
  
 @csrf_exempt
