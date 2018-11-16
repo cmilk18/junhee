@@ -21,8 +21,7 @@ def answer(request):
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
 
-
-
+    if datacontent == '시작하기'
     from bs4 import BeautifulSoup
     req=requests.get('https://www.naver.com/')
     html = req.text
