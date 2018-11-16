@@ -154,6 +154,7 @@ def answer(request):
                     }})
 
     if section == 2:
+        winrate = wincounter / allcounter * 100
         section = 0
         return JsonResponse({
             'message': {
