@@ -22,14 +22,14 @@ def answer(request):
     datacontent = received_json_data['content']
 
     if datacontent == '시작하기'
-    from bs4 import BeautifulSoup
-    req=requests.get('https://www.naver.com/')
-    html = req.text
-    soup = BeautifulSoup(html,'html.parser')
-    title_list = soup.select('.PM_CL_realtimeKeyword_rolling span[class*=ah_k]')
+        from bs4 import BeautifulSoup
+        req=requests.get('https://www.naver.com/')
+        html = req.text
+        soup = BeautifulSoup(html,'html.parser')
+        title_list = soup.select('.PM_CL_realtimeKeyword_rolling span[class*=ah_k]')
 
-    for idx, title in enumerate(title_list, 1):
-        return JsonResponse({
-            'message': {
-                'text': "idx, title.text"
-            }})
+        for idx, title in enumerate(title_list, 1):
+            return JsonResponse({
+                'message': {
+                    'text': "idx, title.text"
+                }})
