@@ -17,7 +17,7 @@ section = 0
 def keyboard(request):
 
     return JsonResponse({
-        "type": "buttons"
+        "type": "buttons",
         "buttons": ["시작하기"]
 
     })
