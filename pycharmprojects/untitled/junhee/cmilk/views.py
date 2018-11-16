@@ -24,7 +24,14 @@ def keyboard(request):
 
 @csrf_exempt
 def answer(request):
-
+    global section
+    global 바위
+    global 가위
+    global 보
+    global wincounter
+    global losecounter
+    global drawcounter
+    global allcounter
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
