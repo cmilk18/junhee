@@ -11,13 +11,13 @@ import random
 wincounter=0
 losecounter=0
 drawcounter=0
-allcounter=100
+allcounter=0
 section = 0
 
 def keyboard(request):
 
     return JsonResponse({
-        "type": "text", "buttons"
+        "type": "buttons"
         "buttons": ["시작하기"]
 
     })
@@ -153,8 +153,8 @@ def answer(request):
                     }})
 
     if section == 2:
-        winrate = wincounter / allcounter * 100
         section = 0
+        winrate = wincounter / allcounter * 100
         return JsonResponse({
             'message': {
                 'text': "=============================== \n전체"+str(allcounter)+"에서"+str(wincounter)+"번 이겼고"+str(losecounter)+"번 졌어요.비긴건"+str(drawcounter)+"입니다.\n승률은"+str(winrate)+"% 입니다\n===============================\n"
