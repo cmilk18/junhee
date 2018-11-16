@@ -18,7 +18,6 @@ def keyboard(request):
 
     return JsonResponse({
         "type": "text", "buttons"
-        "text": "가위바위보를 시작하시려면 '시작하기'를 눌러주세요.",
         "buttons": ["시작하기"]
 
     })
