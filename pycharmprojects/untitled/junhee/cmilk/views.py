@@ -152,17 +152,17 @@ def answer(request):
                         'text': "나는 보를 냈고 컴퓨터는 보를 냈습니다.\n비겼습니다\n"
                     }})
 
-            if datacontent == "종료":
-                section += 1
-                return JsonResponse({
-                    'message': {
-                        'text': "고생하셨습니다.\n"
-                    }})
+        if datacontent == "종료":
+            section += 1
+            return JsonResponse({
+                'message': {
+                    'text': "고생하셨습니다.\n"
+                }})
 
     if section == 2:
         section = 0
         winrate = wincounter / allcounter * 100
         return JsonResponse({
             'message': {
-                'text': "=============================== \n전체"+str(allcounter)+"에서"+str(wincounter)+"번 이겼고"+str(losecounter)+"번 졌어요.비긴건"+str(drawcounter)+"입니다.\n승률은"+str(winrate)+"% 입니다\n===============================\n"
+                'text': "전체"+str(allcounter)+"game\n WIN : "+str(wincounter)+"\n LOSE : "+str(losecounter)+"\nDRAW : "+str(drawcounter)+"입니다.\n 승률 : "+str(winrate)+"% "
             }})
