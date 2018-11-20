@@ -41,7 +41,7 @@ def answer(request):
 
 
     b = random.randrange(0,3)
-    if datacontent == ('시작하기' or '진행')and section == 0:
+    if datacontent == '시작하기' or '진행' and section == 0:
 
         if b == 1:
             c = '바위'
