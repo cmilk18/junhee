@@ -41,25 +41,26 @@ def answer(request):
 
 
     b = random.randrange(0,3)
-    if datacontent == '시작하기' or '진행' and section == 0:
+    if datacontent == '시작하기' or '진행': 
+        if section == 0:
 
-        if b == 1:
-            c = '바위'
-        if b == 0:
-            c = '가위'
-        if b == 2:
-            c = '보'
+            if b == 1:
+                c = '바위'
+            if b == 0:
+                c = '가위'
+            if b == 2:
+                c = '보'
 
-        section += 1
-        return JsonResponse({
-            'message': {
-                'text': "무엇을 낼지 골라주세요,종료하고 싶으면 종료를 눌러주세요"
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': ['가위', '바위', '보', '종료']
-            }
-            })
+            section += 1
+            return JsonResponse({
+                'message': {
+                    'text': "무엇을 낼지 골라주세요,종료하고 싶으면 종료를 눌러주세요"
+                },
+                'keyboard': {
+                    'type': 'buttons',
+                    'buttons': ['가위', '바위', '보', '종료']
+                }
+                })
 
     if section == 1:
         if datacontent == "가위":
@@ -217,5 +218,4 @@ def answer(request):
                 'buttons': ['진행']
             }
         })
-
 
