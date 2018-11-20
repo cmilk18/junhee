@@ -12,6 +12,7 @@ wincounter=0
 losecounter=0
 drawcounter=0
 allcounter=0
+winrate=0
 section = 0
 
 def keyboard(request):
@@ -32,6 +33,8 @@ def answer(request):
     global losecounter
     global drawcounter
     global allcounter
+    global c
+    global winrate
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
     datacontent = received_json_data['content']
@@ -59,12 +62,11 @@ def answer(request):
             })
 
     if section == 1:
-        section += 1
         if datacontent == "가위":
             a = '가위'
 
 
-            if a == '가위'and b == 보:
+            if a == '가위'and c == '보':
                 allcounter += 1
                 wincounter += 1
                 section += 1
@@ -73,7 +75,7 @@ def answer(request):
                         'text': "나는 가위를 냈고 컴퓨터는 보를 냈습니다.\n  이겼어\n"
                     },
                 })
-            elif a == '가위' and b == 바위:
+            elif a == '가위' and c == '바위':
                 allcounter += 1
                 losecounter += 1
                 section += 1
@@ -82,7 +84,7 @@ def answer(request):
                         'text': "나는 가위를 냈고 컴퓨터는 바위를 냈습니다.\n졌엉 ㅠㅜㅠㅜㅠㅜㅠㅜ\n"
                     }})
 
-            elif a == '가위' and b == 가위:
+            elif a == '가위' and c == '가위':
                 allcounter += 1
                 drawcounter += 1
                 section += 1
@@ -95,7 +97,7 @@ def answer(request):
         if datacontent == "바위":
             a='바위'
 
-            if a == '바위'and b == 가위:
+            if a == '바위'and c == '가위':
                 allcounter += 1
                 wincounter += 1
                 section += 1
@@ -104,7 +106,7 @@ def answer(request):
                         'text': "나는 바위를 냈고 컴퓨터는 가위를 냈습니다.\n이겼습니다~~!\n"
                     }})
 
-            elif a == '바위' and b == 바위:
+            elif a == '바위' and c == '바위':
                 allcounter += 1
                 drawcounter += 1
                 section += 1
@@ -113,7 +115,7 @@ def answer(request):
                      'text': "나는 바위를 냈고 컴퓨터도 바위를 냈습니다.\n비겼습니다~~!\n"
                         }})
 
-            elif a == '바위' and b == 보:
+            elif a == '바위' and c == '보':
                 allcounter += 1
                 losecounter += 1
                 section += 1
@@ -125,7 +127,7 @@ def answer(request):
         if datacontent == "보":
             a = '보'
 
-            if a == '보'and b == 가위:
+            if a == '보'and c == '가위':
                 allcounter += 1
                 losecounter += 1
                 section += 1
@@ -134,7 +136,7 @@ def answer(request):
                         'text': "나는 보를 냈고 컴퓨터는 가위를 냈습니다.\n졌어유ㅜㅠㅜㅠㅜㅠㅜ\n"
                     }})
 
-            elif a == '보' and b == 바위:
+            elif a == '보' and c == '바위':
                 allcounter += 1
                 wincounter += 1
                 section += 1
@@ -143,7 +145,7 @@ def answer(request):
                         'text': "나는 보를 냈고 컴퓨터는 바위를 냈습니다.\n이겼다리\n"
                         }})
 
-            elif a == '보' and b == 보:
+            elif a == '보' and c == '보':
                 allcounter += 1
                 drawcounter += 1
                 section += 1
